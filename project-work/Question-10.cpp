@@ -37,17 +37,14 @@ int main() {
             cout << "Enter the number of years: ";
             cin >> year;
             //calculate balance for each year using simple interest formula
-
-            for(int i =1; i <= year; i++)
-            {
-                balance = principal * (1 + rate)* i;
-                cout << "Year " << i << ": $" << balance << endl; 
-            }
+            
+            balance = principal * pow((1 + rate), year);
+            cout << "Year " << year << ": $" << balance << endl; 
     
             break;
 
         case 2:
-                        // Prompt user for input: principal amount, minimum interest rate, maximum interest rate, number of years, and annual deposit amount
+             // Prompt user for input: principal amount, minimum interest rate, maximum interest rate, number of years, and annual deposit amount
 
             cout << "Enter the principal amount: $";
             cin >> principal;
@@ -61,12 +58,10 @@ int main() {
             cin >> deposit;
             // Calculate and print balance for each year using compound interest formula
 
-            for (int i = 1; i <= year; i++) 
-            {
-                rate = min_rate + (max_rate - min_rate) * (i - 1) / (year - 1);
-                balance = principal * pow(1 + rate / 100, i) + deposit * ((pow(1 + rate / 100, i) - 1) / (rate / 100));
-                cout << "Year " << i << ": $" << balance << endl;
-            }
+
+            rate = min_rate + (max_rate - min_rate) * (year - 1) / (year - 1);
+            balance = principal * pow(1 + rate / 100, year) + deposit * ((pow(1 + rate / 100, year) - 1) / (rate / 100));
+            cout << "Year " << year << ": $" << balance << endl;
            
             break;
 
